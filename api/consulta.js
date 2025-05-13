@@ -7,7 +7,6 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Número do ticket não informado." });
   }
 
-  //const token = 'fce178e8-7cd7-440e-9f60-7ecec3472c94';
   
   const token = process.env.MOVIDESK_TOKEN; // Obtém o token de um arquivo de ambiente
 
