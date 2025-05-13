@@ -7,9 +7,9 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Número do ticket não informado." });
   }
 
-  const token = 'fce178e8-7cd7-440e-9f60-7ecec3472c94';
+  //const token = 'fce178e8-7cd7-440e-9f60-7ecec3472c94';
   
-  //process.env.MOVIDESK_TOKEN; // Obtém o token de um arquivo de ambiente
+  const token = process.env.MOVIDESK_TOKEN; // Obtém o token de um arquivo de ambiente
 
   // URL da API Movidesk
   const url = `https://api.movidesk.com/public/v1/tickets?token=${token}&$filter=id eq ${protocolo}&$select=id,slaSolutionDate,subject,createdDate,resolvedIn,status`;
