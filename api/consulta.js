@@ -8,13 +8,13 @@ export default async function handler(req, res) {
 
   const token = process.env.MOVIDESK_TOKEN; // Token vindo das variáveis de ambiente
 
-  const url = `https://api.movidesk.com/public/v1/tickets?token=${token}&$filter=id eq ${protocolo}&$select=id,slaSolutionDate,subject,createdDate,resolvedIn,status`;
+  const url = `https://api.movidesk.com/public/v1/tickets?token=${token}&$filter=id eq ${protocolo} and ownerTeam%20eq%20%27Personalização%20de%20Relatórios%27&$select=id,slaSolutionDate,subject,createdDate,resolvedIn,status`;
 
   try {
     const response = await fetch(url);
 
     if (!response.ok) {
-      return res.status(response.status).json({ error: "Erro ao consultar a API Movidesk." });
+      return res.status(response.status).json({ error: "Erro ao consultar os dados via API." });
     }
 
     const data = await response.json();
