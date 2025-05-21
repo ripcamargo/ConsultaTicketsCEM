@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     const data = await response.json();
 
     if (data.length === 0) {
-      return res.status(404).json({ error: "Ticket não encontrado." });
+      return res.status(404).json({ error: "Ticket não encontrado. Verifique se o ticket realmente está sob resposabilidade da equipe de Relatórios Personalizados e/ou se o número está correto." });
     }
 
     return res.status(200).json(data[0]);
